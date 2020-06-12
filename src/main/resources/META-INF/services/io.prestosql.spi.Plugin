@@ -1,1 +1,1 @@
-io.prestosql.plugin.consulconnect.ConsulConnectAuthenticator
+io.github.gugalnikov.prestosql.plugin.consulconnect.ConsulConnectPlugin

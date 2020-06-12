@@ -11,8 +11,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.prestosql.plugin.consulconnect;
+package io.github.gugalnikov.prestosql.plugin.consulconnect;
 
-public class TestConsulConnectPlugin
+import com.google.common.collect.ImmutableList;
+import io.prestosql.spi.Plugin;
+import io.prestosql.spi.security.CertificateAuthenticatorFactory;
+
+public class ConsulConnectPlugin
+        implements Plugin
 {
+    @Override
+    public Iterable<CertificateAuthenticatorFactory> getCertificateAuthenticatorFactories()
+    {
+        return ImmutableList.of(new ConsulConnectAuthenticatorFactory());
+    }
 }
