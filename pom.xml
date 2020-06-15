@@ -4,9 +4,32 @@
 
     <groupId>io.github.gugalnikov</groupId>
     <artifactId>presto-consul-connect</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
     <description>Presto - Consul Connect Plugin</description>
     <name>Presto Consul Connect</name>
+    <url>https://github.com/gugalnikov/presto-consul-connect</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Arturo Viveros</name>
+            <email>gugalnikov@gmail.com</email>
+            <organization>Github</organization>
+            <organizationUrl>https://github.com/gugalnikov</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/gugalnikov/presto-consul-connect</url>
+    </scm>
 
     <parent>
         <groupId>io.airlift</groupId>
@@ -44,13 +67,13 @@
             <groupId>io.airlift</groupId>
             <artifactId>units</artifactId>
             <version>1.6</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>29.0-jre</version>
-        </dependency>-->
+            <version>26.0-jre</version>
+        </dependency>
 
         <dependency>
             <groupId>com.google.inject</groupId>
@@ -209,14 +232,81 @@
         </dependencies>
     </dependencyManagement>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>io.prestosql</groupId>
-                <artifactId>presto-maven-plugin</artifactId>
-                <version>9</version>
-                <extensions>true</extensions>
-            </plugin>
-        </plugins>
-    </build>
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.prestosql</groupId>
+                        <artifactId>presto-maven-plugin</artifactId>
+                        <version>9</version>
+                        <extensions>true</extensions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.0.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.0.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.4</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.8</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 </project>
