@@ -23,6 +23,8 @@ public class ConsulConnectPlugin
     @Override
     public Iterable<CertificateAuthenticatorFactory> getCertificateAuthenticatorFactories()
     {
-        return ImmutableList.of(new ConsulConnectAuthenticatorFactory());
+        return ImmutableList.<CertificateAuthenticatorFactory>builder()
+                .add(new ConsulConnectAuthenticatorFactory())
+                .build();
     }
 }
