@@ -23,9 +23,9 @@ https://prestosql.io/docs/current/develop/spi-overview.html#deploying-a-custom-p
 
 presto-consul-connect expects the following parameters to be present either in the plugin's config file or as environment variables:
 
-certificate-authenticator.name=consulconnect
-consul.service=<service_name>
-consul.addr=<consul_address>
-consul.token=<consul_token>
+- certificate-authenticator.name=consulconnect
+- consul.service=<service_name>
+- consul.addr=<consul_address>
+- consul.token=<consul_token>
 
 ## testing with Nomad job -WIP
