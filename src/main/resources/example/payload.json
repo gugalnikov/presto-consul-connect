@@ -1,0 +1,14 @@
+{
+  "ID": "presto",
+  "Name": "presto",
+  "Tags": ["primary", "v1"],
+  "Address": "127.0.0.1",
+  "Port": 8088,
+  "Meta": {
+    "presto_version": "334"
+  },
+  "EnableTagOverride": false,
+  "Connect": {
+    "Native": true
+  }
+}
