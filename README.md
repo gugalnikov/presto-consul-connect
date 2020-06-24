@@ -53,3 +53,9 @@ For the plugin to work with this image, the following steps are required:
 - in a multi-node setup, each service associated with Presto (coordinator, workers) can request its own leaf certificate from Consul, then each JKS has a very narrow, focused scope (useful for multi-cloud, multi-datacenter scenarios)
 - leaf certificates should be short-lived, so then the JKSs need to be kept updated; an approach to achieve this is by delegating to a certificate handler, which can run out of process either as a system service or as a sidecar container
 - hot reloading of SSL certificates is quite challenging in Java; with an application like Presto which is mostly stateless, it might be more practical to just signal the node to gracefully shutdown & restart when the JKS has been updated (https://prestosql.io/docs/current/release/release-0.128.html#graceful-shutdown)
+
+## example
+
+- the following is a ready-made example which runs on Nomad:
+
+    [example](src/main/resources/example/README.md)
