@@ -22,6 +22,7 @@ import io.prestosql.spi.security.CertificateAuthenticatorFactory;
 import java.util.Map;
 
 import static io.airlift.configuration.ConfigBinder.configBinder;
+import static java.util.Objects.requireNonNull;
 
 public class ConsulConnectAuthenticatorFactory
         implements CertificateAuthenticatorFactory
@@ -35,6 +36,7 @@ public class ConsulConnectAuthenticatorFactory
     @Override
     public CertificateAuthenticator create(Map<String, String> config)
     {
+        requireNonNull(config, "config is null");
         Bootstrap app = new Bootstrap(
                 binder -> {
                     configBinder(binder).bindConfig(ConsulConnectConfig.class);
