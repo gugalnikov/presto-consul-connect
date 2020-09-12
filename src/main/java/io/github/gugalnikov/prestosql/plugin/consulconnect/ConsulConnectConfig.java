@@ -54,11 +54,11 @@ public class ConsulConnectConfig
 
     public String getConsulToken()
     {
-        return Optional.ofNullable(System.getenv("CONSUL_TOKEN")).orElse(this.consulToken);
+        return Optional.ofNullable(System.getenv("CONSUL_HTTP_TOKEN")).orElse(this.consulToken);
     }
 
     @Config("consul.token")
-    @ConfigDescription("Consul ACL token [ env: CONSUL_TOKEN ]")
+    @ConfigDescription("Consul ACL token [ env: CONSUL_HTTP_TOKEN ]")
     public void setConsulToken(String consulToken)
     {
         this.consulToken = consulToken;

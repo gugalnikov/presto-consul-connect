@@ -4,7 +4,7 @@
 
     <groupId>io.github.gugalnikov</groupId>
     <artifactId>presto-consul-connect</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>2.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <description>Presto - Consul Connect Plugin</description>
     <name>Presto Consul Connect</name>
@@ -40,8 +40,8 @@
     <properties>
         <air.check.skip-pmd>true</air.check.skip-pmd>
         <air.check.skip-enforcer>true</air.check.skip-enforcer>
-        <dep.presto.version>334</dep.presto.version>
-        <dep.airlift.version>0.197</dep.airlift.version>
+        <dep.presto.version>341</dep.presto.version>
+        <dep.airlift.version>200</dep.airlift.version>
     </properties>
 
     <dependencies>
