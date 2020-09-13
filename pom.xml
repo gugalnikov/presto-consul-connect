@@ -41,7 +41,7 @@
         <air.check.skip-pmd>true</air.check.skip-pmd>
         <air.check.skip-enforcer>true</air.check.skip-enforcer>
         <dep.presto.version>334</dep.presto.version>
-        <dep.airlift.version>197</dep.airlift.version>
+        <dep.airlift.version>0.197</dep.airlift.version>
     </properties>
 
     <dependencies>
