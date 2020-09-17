@@ -4,7 +4,7 @@
 
     <groupId>io.github.gugalnikov</groupId>
     <artifactId>presto-consul-connect</artifactId>
-    <version>2.1.0</version>
+    <version>2.2.0</version>
     <packaging>jar</packaging>
     <description>Presto - Consul Connect Plugin</description>
     <name>Presto Consul Connect</name>
@@ -34,14 +34,14 @@
     <parent>
         <groupId>io.airlift</groupId>
         <artifactId>airbase</artifactId>
-        <version>97</version>
+        <version>102</version>
     </parent>
 
     <properties>
         <air.check.skip-pmd>true</air.check.skip-pmd>
         <air.check.skip-enforcer>true</air.check.skip-enforcer>
-        <dep.presto.version>334</dep.presto.version>
-        <dep.airlift.version>0.197</dep.airlift.version>
+        <dep.presto.version>341</dep.presto.version>
+        <dep.airlift.version>200</dep.airlift.version>
     </properties>
 
     <dependencies>
@@ -89,7 +89,7 @@
         <dependency>
             <groupId>io.prestosql</groupId>
             <artifactId>presto-spi</artifactId>
-            <version>334</version>
+            <version>${dep.presto.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -229,20 +229,6 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <!--<plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.4</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>-->
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
